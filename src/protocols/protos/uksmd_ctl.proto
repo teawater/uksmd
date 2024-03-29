@@ -1,0 +1,32 @@
+// Copyright (C) 2023, 2024 Ant group. All rights reserved.
+//
+// SPDX-License-Identifier: Apache-2.0
+
+syntax = "proto3";
+
+package MemAgent;
+
+import "google/protobuf/empty.proto";
+
+service Control {
+    rpc Add(AddRequest) returns (google.protobuf.Empty);
+    rpc Del(DelRequest) returns (google.protobuf.Empty);
+    rpc Refresh(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc Merge(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+message Addr {
+    uint64 start = 1;
+    uint64 end = 2;
+}
+
+message AddRequest {
+    uint64 pid = 1;
+    oneof OptAddr {
+        Addr addr = 2;
+    }
+}
+
+message DelRequest {
+    uint64 pid = 1;
+}

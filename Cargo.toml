@@ -1,0 +1,28 @@
+[package]
+name = "uksmd"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "uksmd-ctl"
+path = "src/ctl/main.rs"
+
+[dependencies]
+log = "0.4"
+log4rs = "1.2"
+structopt = "0.3"
+anyhow = "1.0"
+libc = "0.2"
+chrono = "0.4"
+maplit = "1.0"
+ttrpc = { version = "0.8", features = ["async"] }
+tokio = { version = "1.33", features = ["full"] }
+async-trait = "0.1"
+byteorder = "1.5"
+protobuf = "3.1"
+lazy_static = "1.4"
+regex = "1.9"
+page_size = "0.6"
+
+[build-dependencies]
+ttrpc-codegen = "0.4"
